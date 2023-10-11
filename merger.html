@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html> 
 <head>
-	<title></title>
+	<title>Merging Items </title>
 <style>
-    .flex-container {
+    .flex-container 
+	{
       display: flex;  flex-direction:row;
       background-color: red;
   }
 
-.flex-container > div {  /*div children of the flex container*/
+.flex-container > div 
+{  /*div children of the flex container*/
   background-color: #f1f1f1; 
   margin: 10px;  padding: 20px;  font-size: 30px;
 }
 
 /* Responsive layout */
-@media (max-width: 600px) { 
+@media (max-width: 600px) 
+{ 
 	 .flex-container{
 		 flex-direction:column;
 		 background-color: green;
@@ -36,12 +39,14 @@
 	<p> Press the button to create an new element of type div and then add it to the container.
 	</p>
 		<button onclick="addEnd()">Add end</button>
-      
+        <button onclick="addFront()">Add Front</button>
+        <button onclick="remove()">Remove</button>
 	
 	
 </body>
 <script>
-	function addEnd(){  
+	function addEnd()
+	{  
 		/* make the div and its text */
 		let element = document.createElement("div")        
 		element.innerHTML = document.getElementById("inputElement").value
@@ -54,5 +59,23 @@
 		
 	}
    
+    function remove()
+	{
+        let queueItems = document.getElementsByClassName("merger")
+        let len_ele = queueItems.length
+        if(len_ele > 0){
+            queueItems[len_ele-1].remove()
+        }
+    }
+    function addFront() 
+	{
+      let element = document.createElement("div");
+      element.innerHTML = document.getElementById("inputElement").value;
+      element.style.color = "orange";
+      element.className = "merger";
+
+      let container = document.getElementById("target");
+      container.insertBefore(element, container.firstChild);
+    }
 </script>
 </html>	
