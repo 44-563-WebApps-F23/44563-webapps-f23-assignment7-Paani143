@@ -43,6 +43,7 @@
 		<button onclick="addEnd()">Add end</button>
         <button onclick="addFront()">Add Front</button>
         <button onclick="remove()">Remove</button>
+		
 	
 	
 </body>
@@ -70,14 +71,19 @@
 		}
 	}
 
-	function addFront()
-	{
-		let myinput = document.getElementById("mytext").value;
-		let element = document.createElement("div");
-		element.innerHTML = myinput;
-		element.className = "merger";
-		let container = document.getElementById('target');
-		container.insertBefore(element, container.firstChild);
-	}
+	
+	function addFront() {
+      let element = document.createElement("div");
+      element.innerHTML = document.getElementById("inputElement").value;
+      element.style.color = "orange";
+      element.className = "merger";
+
+      let container = document.getElementById("target");
+      container.insertBefore(element, container.firstChild);
+    }
+
+
+
+
 </script>
 </html>	
